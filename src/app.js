@@ -2,7 +2,6 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const ConversationV1 = require('watson-developer-cloud/conversation/v1');
 
 const app = express();
 const router = express.Router();

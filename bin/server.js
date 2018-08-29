@@ -1,6 +1,7 @@
 'use strict'
 
-const app = require('../src/app');
+//const app = require('../src/app');
+const app = require('../src/watson');
 const debug = require('debug')('api:server');
 const http = require('http');
 
