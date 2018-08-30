@@ -16,8 +16,14 @@ const assistant = new AssistantV1({
     version: '2018-08-29',
 });
 
+//const context = {};
+
 const create = router.post('/', (req, res, next) => {
-    const { text, context = {} } = req.body;
+    const
+        {
+            text,
+            context = {}
+        } = req.body;
 
     const params = {
         input: { text },
@@ -28,6 +34,7 @@ const create = router.post('/', (req, res, next) => {
     assistant.message(params, (err, response) => {
         if (err) res.status(500).json(err);
 
+        // const context = response.context;
         res.json(response);
     });
 });

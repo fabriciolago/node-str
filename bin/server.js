@@ -2,10 +2,10 @@
 
 //const app = require('../src/app');
 const app = require('../src/watson');
-const debug = require('debug')('api:server');
+const debug = require('debug')('node-str:server');
 const http = require('http');
 
-const port = normalizePort(process.env.Port || '3000');
+const port = normalizePort(process.env.Port || '3001');
 app.set('port', port);
 
 const server = http.createServer(app);
