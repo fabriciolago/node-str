@@ -35,13 +35,18 @@ const create = router.post('/', (req, res, next) => {
     assistant.message(params, (err, response) => {
         if (err) res.status(500).json(err);
 
-        console.log(response);
+        //console.log(response);
         // if(response.intents.length == 0)
         // {
         //     const question = Question.create(response);
         // }
-        const question = Question.create(response);
-        console.log(question);
+        Question.create(response, (error, success) => {
+            if (error)
+                console.log("Erro: " + error);
+            else
+                console.log("Sucesso: " + success);
+        });
+
         res.json(response);
     });
 });
