@@ -3,6 +3,7 @@
 const AssistantV1 = require('watson-developer-cloud/assistant/v1');
 const express = require('express');
 const bodyParser = require('body-parser');
+var Question = require('../model/question');
 
 const app = express();
 const router = express.Router();
@@ -34,7 +35,13 @@ const create = router.post('/', (req, res, next) => {
     assistant.message(params, (err, response) => {
         if (err) res.status(500).json(err);
 
-        // const context = response.context;
+        console.log(response);
+        // if(response.intents.length == 0)
+        // {
+        //     const question = Question.create(response);
+        // }
+        const question = Question.create(response);
+        console.log(question);
         res.json(response);
     });
 });
